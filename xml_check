@@ -1,0 +1,8 @@
+        File file = new File("ssession.xml");
+        DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory
+                .newInstance();
+        DocumentBuilder documentBuilder = documentBuilderFactory.newDocumentBuilder();
+        Document document = documentBuilder.parse(file);
+        String usr = document.getElementsByTagName("SSTATE").item(0).getTextContent();
+        String pwd = document.getElementsByTagName("SSESSION").item(0).getTextContent();
+        String name = document.getElementsByTagName("SNAME").item(0).getTextContent();
