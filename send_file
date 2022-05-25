@@ -1,0 +1,5 @@
+// Sending xml to server
+            File textFile = new File("login.xml");
+            Files.copy(textFile.toPath(), output);
+            output.flush();
+            writer.append(CRLF).flush();
