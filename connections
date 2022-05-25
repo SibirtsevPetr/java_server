@@ -1,0 +1,18 @@
+public int getDbConnection() throws ClassNotFoundException, SQLException, IOException {
+
+        String url = "http://192.168.100.***:8777/pws/process";
+        String charset = "UTF-8";
+        String boundary = Long.toHexString(System.currentTimeMillis());
+        String CRLF = "\r\n";
+
+        URLConnection dbConnection = new URL(url).openConnection();
+        dbConnection.setDoOutput(true);
+        dbConnection.setRequestProperty("Content-Type", "multipart/form-data; boundary=" + boundary);
+        
+//        if needed:
+//        return (Connection) dbConnection;
+
+        try (
+                OutputStream output = dbConnection.getOutputStream();
+                PrintWriter writer = new PrintWriter(new OutputStreamWriter(output, charset), true);
+        ) {
